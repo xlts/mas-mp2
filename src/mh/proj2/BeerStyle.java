@@ -2,6 +2,7 @@ package mh.proj2;
 
 import mh.masutils.MASUtils;
 
+//seems redundant...
 public class BeerStyle {
 
 	private String name;

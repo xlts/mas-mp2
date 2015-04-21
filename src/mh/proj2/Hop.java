@@ -12,6 +12,12 @@ public class Hop {
 	
 	private Set<HopInBeerRecipe> hopsInBeerRecipe = new HashSet<>(); //association with an attribute
 
+	public Hop(String name, double alphaAcidPercentage) {
+		super();
+		setName(name);
+		setAlphaAcidPercentage(alphaAcidPercentage);
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -26,7 +32,7 @@ public class Hop {
 		return alphaAcidPercentage;
 	}
 
-	public void setAlphaAcidPercentage(double alphaAcidPercentage) {
+	public void setAlphaAcidPercentage(Double alphaAcidPercentage) {
 		if (!MASUtils.isNull(name)) {
 			this.alphaAcidPercentage = alphaAcidPercentage;
 		}
@@ -39,8 +45,13 @@ public class Hop {
 		}
 	}
 	
-	
-	
-	
+	public void removeHopInBeerRecipe(HopInBeerRecipe e) {
+		if (hopsInBeerRecipe.contains(e)){
+			hopsInBeerRecipe.remove(e);
+			e.setHop(null);
+			e.setBeerRecipe(null);
+		
+		}
+	}
 	
 }

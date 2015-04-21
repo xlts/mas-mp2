@@ -2,12 +2,19 @@ package mh.proj2;
 
 import mh.masutils.MASUtils;
 
+//associative class
 public class HopInBeerRecipe {
 
 	private BeerRecipe beerRecipe;
 	private Hop hop;
 	
 	private HopInBeerRecipeFunction function;
+	
+	public HopInBeerRecipe(HopInBeerRecipeFunction f) {
+		if (!MASUtils.isNull(f)){
+			this.function = f;
+		}
+	}
 
 	public BeerRecipe getBeerRecipe() {
 		return beerRecipe;
