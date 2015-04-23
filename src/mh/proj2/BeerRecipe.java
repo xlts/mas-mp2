@@ -59,6 +59,9 @@ public class BeerRecipe {
 	}
 
 	public void addHopInBeerRecipe(HopInBeerRecipe e) {
+		if (MASUtils.isNull(e)) {
+			throw new IllegalArgumentException("passed a null value");
+		}
 		if (hopsInBeerRecipe.size() == 5) {
 			throw new RuntimeException("there may be at most 5 hops in a beer recipe");
 		}
@@ -69,6 +72,9 @@ public class BeerRecipe {
 	}
 	
 	public void removeHopInBeerRecipe(HopInBeerRecipe e) {
+		if (MASUtils.isNull(e)) {
+			throw new IllegalArgumentException("passed a null value");
+		}
 		if (hopsInBeerRecipe.contains(e)){
 			hopsInBeerRecipe.remove(e);
 			e.setBeerRecipe(null);
@@ -77,12 +83,18 @@ public class BeerRecipe {
 	}
 	
 	public void removeYeast(Yeast y){
+		if (MASUtils.isNull(y)) {
+			throw new IllegalArgumentException("passed a null value");
+		}
 		if (yeasts.contains(y)){
 			yeasts.remove(y);
 		}
 	}
 	
 	public void removeBeer(Beer b){
+		if (MASUtils.isNull(b)) {
+			throw new IllegalArgumentException("passed a null value");
+		}
 		if (beers.contains(b)){
 			beers.remove(b);
 			b.removeBeerRecipe(this.id);

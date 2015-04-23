@@ -39,6 +39,9 @@ public class Hop {
 	}
 
 	public void addHopInBeerRecipe(HopInBeerRecipe e) {
+		if (MASUtils.isNull(e)) {
+			throw new IllegalArgumentException("passed a null value");
+		}
 		if (!hopsInBeerRecipe.contains(e)) {
 			hopsInBeerRecipe.add(e);
 			e.setHop(this);
@@ -46,6 +49,9 @@ public class Hop {
 	}
 	
 	public void removeHopInBeerRecipe(HopInBeerRecipe e) {
+		if (MASUtils.isNull(e)) {
+			throw new IllegalArgumentException("passed a null value");
+		}
 		if (hopsInBeerRecipe.contains(e)){
 			hopsInBeerRecipe.remove(e);
 			e.setHop(null);

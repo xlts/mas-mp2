@@ -42,6 +42,9 @@ public class Beer {
 	}
 	
 	public void addBeerRecipeQual(BeerRecipe beerRecipe) {
+		if (MASUtils.isNull(beerRecipe)) {
+			throw new IllegalArgumentException("passed a null value");
+		}
 		if (!beerRecipeQual.containsKey(beerRecipe.getId())) {
 			beerRecipeQual.put(beerRecipe.getId(), beerRecipe);
 			beerRecipe.addBeer(this);
@@ -57,6 +60,9 @@ public class Beer {
 	}
 	
 	public void addOrder(Order o) {
+		if (MASUtils.isNull(o)) {
+			throw new IllegalArgumentException("passed a null value");
+		}
 		if (!orders.contains(o)){
 			orders.add(o);
 			o.addBeer(this);
@@ -64,6 +70,9 @@ public class Beer {
 	}
 
 	public void removeOrder(Order o) {
+		if (MASUtils.isNull(o)) {
+			throw new IllegalArgumentException("passed a null value");
+		}
 		if (orders.contains(o)){
 			orders.remove(o);
 			o.removeBeer(this);

@@ -19,6 +19,9 @@ public class Order {
 	}
 	
 	public void addBeer(Beer beer) {
+		if (MASUtils.isNull(beer)) {
+			throw new IllegalArgumentException("passed a null value");
+		}
 		if (!beers.contains(beer)) {
 			beers.add(beer);
 			beer.addOrder(this);
@@ -26,6 +29,9 @@ public class Order {
 	}
 	
 	public void removeBeer(Beer beer) {
+		if (MASUtils.isNull(beer)) {
+			throw new IllegalArgumentException("passed a null value");
+		}
 		if (beers.contains(beer)) {
 			beers.remove(beer);
 			beer.removeOrder(this);
